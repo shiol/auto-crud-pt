@@ -23,7 +23,8 @@ Descompacte o pacote baixado e copie o diretório auto-crud para seu diretório 
 Supondo que tenha mudado o nome para clientes.
 
 ## Também pode ser instalado pelo composer:
-composer ribafs/auto-crud-pt
+- Crie um diretório e acesse-o. Então execute
+- composer require ribafs/auto-crud-pt
 
 ## Configuração
 
