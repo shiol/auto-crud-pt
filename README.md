@@ -22,6 +22,9 @@ https://github.com/ribafs/auto-crud
 Descompacte o pacote baixado e copie o diretório auto-crud para seu diretório web (renomeie a vontade).
 Supondo que tenha mudado o nome para clientes.
 
+## Também pode ser instalado pelo composer:
+composer ribafs/auto-crud-pt
+
 ## Configuração
 
 Edite o arquivo db_connnect.php e ajuste para as informações do seu banco de dados
