@@ -1,15 +1,15 @@
 <?php
 $host = '127.0.0.1';
 /*
-$db   = 'banco';
+$db   = 'cadastro';
 $user = 'postgres';
 $pass = 'postgres';
 $sgbd='pgsql';      // pgsql, mysql
-$table='tabela';
+$table='clientes';
 */
-$db   = 'paginacao';
+$db   = 'cadastro';
 $user = 'root';
-$pass = 'mysql';
+$pass = '';
 $sgbd='mysql';      // pgsql, mysql
 $table='clientes';
 
