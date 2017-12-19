@@ -1,23 +1,14 @@
 {
     "name": "ribafs/auto-crud-pt",
+    "description": "Criador Automático de CRUDs",
+    "type": "php-pdo",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ribamar FS",
-            "email": "ola@ribafs.org",
-            "homepage": "https://ribafs.org",
-            "role": "Developer"
+            "email": "ola@ribafs.org"
         }
     ],
-    "description": "Criador Automárico de CRUD com PDO",
-    "type": "crud-pdo",
-    "keywords": ["php", "bootstrap", "crud", "pdo"],
-    "license": "MIT",
-    "support": {
-        "issues": "https://github.com/ribafs/auto-crud-pt/issues",
-        "source": "https://github.com/ribafs/auto-crud-pt.git"
-    },
-    "homepage": "https://github.com/ribafs/auto-crud-pt",
-    "require": {
-        ""
-    }
+    "minimum-stability": "stable",
+    "require": {}
 }
