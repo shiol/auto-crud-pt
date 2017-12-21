@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'auto-crud';
 $user = 'root';
-$pass = 'mysql';
+$pass = '';
 $sgbd='mysql';      // pgsql, mysql
 $table='clientes';
 
