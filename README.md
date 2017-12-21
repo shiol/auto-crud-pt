@@ -62,6 +62,9 @@ O código com a paginação está no arquivo libs/ps_pagination.php.
       - Simplificação do código removendo código desnecessário
       - Criadas duas funções para substituir trechos de código que se repetiam. Inseri seu include na conexao.php para facilitar
 
+## AVISO
+O principal objetivo deste pequeno software é o de facilitar a vida de quem não programa e nem está pensando em aprender e também o de facilitar para quem programa mas apenas quer criar algo rápido, como uma agenda ou um cadastro simples.
+
 ## Licença
 
 MIT
@@ -70,4 +73,3 @@ Agradecimento ao site
 https://www.codeofaninja.com/2011/06/paginating-your-data-with-ajax-and.html
 
 Sem ele a paginação não seria tão elegante e eficiente.
- 
