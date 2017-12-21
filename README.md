@@ -30,21 +30,21 @@ http://localhost/clientes
 
 Ao abrir no navegador verá o grid com o CRUD como abaixo:
 
-<img src="images/grid.png">
+<img src="imagens/grid.png">
 
 No grid acima verá a listagem dos registros existentes com paginação, edição, exclusão e adição de um novo registro.
 
 Para inserir um novo registro clique no botão à esquerda Novo Registro
 
-<img src="images/insert.png">
+<img src="imagens/insert.png">
 
 Para atualizar um dos registros clique no ícone Editar à esquerda e verá a tela:
 
-<img src="images/update.png">
+<img src="imagens/update.png">
 
 Para remover um registro apenas clique no link Excluir à direita do Editar e confirme na tela:
 
-<img src="images/delete.png">
+<img src="imagens/delete.png">
 
 ## Funcionamento
 
