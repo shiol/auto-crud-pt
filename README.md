@@ -22,6 +22,7 @@ Supondo que tenha mudado o nome para clientes.
 ## Instalando via composer
 - Criar um diretório via terminal
 - Acessar o diretório criado e executar:
+
 composer require ribafs/auto-crud-pt
 
 ## Configuração
