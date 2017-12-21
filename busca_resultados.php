@@ -15,7 +15,7 @@
             <div class="pull-right"style="padding-left: 0;"  >
               <span class="pull-right">  
                 <label class="col-lg-12 control-label" for="keyword" style="padding-right: 0;">
-                  <input type="text" value="<?=$_GET['keyword']?>" placeholder="Nome ou parte" class="form-control" name="keyword">
+                  <input type="text" value="" placeholder="Nome ou parte" class="form-control" name="keyword">
                 </label>
                 </span>
               <button class="btn btn-info">Busca</button>
