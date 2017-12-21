@@ -64,9 +64,14 @@ O código com a paginação está no arquivo libs/ps_pagination.php.
 
 - 1.0 - Versão inicial
 - 1.1 - Nesta versão os arquivos foram todos renomeados para nomes em português
+
       - Melhorados e traduzidos os comentários
+      
       - Simplificação do código removendo código desnecessário
+      
       - Criadas duas funções para substituir trechos de código que se repetiam. Inseri seu include na conexao.php para facilitar
+      
+      - Pequena alteração no css do cabeçalho e do rodapé
 
 ## AVISO
 O principal objetivo deste pequeno software é o de facilitar a vida de quem não programa e nem está pensando em aprender e também o de facilitar para quem programa mas apenas quer criar algo rápido, como uma agenda ou um cadastro simples.
