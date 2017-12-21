@@ -1,6 +1,6 @@
 # Criador Automático de CRUDs
 
-#### Apenas indique o banco de dados e a tabela no db_connect.php e ele cria seu CRUD com PDO, Bootstrap e Paginação, com suporte a MySQL e PostgreSQL garantidos e ainda outros via PDO.
+#### Apenas indique o banco de dados e a tabela no conexao.php e ele cria seu CRUD com PDO, Bootstrap e Paginação, com suporte a MySQL e PostgreSQL garantidos e ainda outros via PDO.
 
 ### Em dois Idiomas
 Português - https://github.com/ribafs/auto-crud-pt
