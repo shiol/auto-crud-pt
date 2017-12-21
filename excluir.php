@@ -1,9 +1,11 @@
 <?php 
-require_once('./header.php');
-require_once('./db_connect.php');
+require_once('./cabecalho.php');
+require_once('./conexao.php');
 
+// Recebido da busca_resultados.php
 $id=$_GET['id'];
 
+// Mostrar nome da tabela
 print '<h3 align="center">'.ucfirst($table).'</h3>';
 ?>
 
@@ -24,23 +26,23 @@ $reg = $sth->fetch(PDO::FETCH_OBJ);
 
     $sql = "SELECT * FROM $table";
     $sth = $pdo->query($sql);
-    $numfields = $sth->columnCount();
-        
-    for($x=0;$x<$numfields;$x++){
-        $meta = $sth->getColumnMeta($x);
-        $field = $meta['name'];
-?>
 
-            <b><?=ucfirst($field)?>:</b> <?=$reg->$field?><br>
-<?php
+    $num_campos = num_campos($table,$pdo);
+        
+    for($x=0;$x<$num_campos;$x++){
+        $campo = nome_campo($sth, $x);
+        ?>
+        <!-- Mostrar nomes de campos e respectivos valores-->
+        <b><?=ucfirst($campo)?>:</b> <?=$reg->$campo?><br>
+        <?php
     }
 ?>
-            <br>
-            <form method="post" action="">
-            <input name="id" type="hidden" value="<?=$id?>">
-            <input name="enviar" class="btn btn-danger" type="submit" value="Excluir!">&nbsp;&nbsp;&nbsp;
-            <input name="enviar" class="btn btn-warning" type="button" onclick="location='index.php?table=<?=$table?>'" value="Voltar">
-            </form>
+        <br>
+        <form method="post" action="">
+        <input name="id" type="hidden" value="<?=$id?>">
+        <input name="enviar" class="btn btn-danger" type="submit" value="Excluir!">&nbsp;&nbsp;&nbsp;
+        <input name="enviar" class="btn btn-warning" type="button" onclick="location='index.php'" value="Voltar">
+        </form>
         </div>
     <div>
 </div>
@@ -52,10 +54,10 @@ if(isset($_POST['enviar'])){
     $sth = $pdo->prepare($sql);
     $sth->bindParam(':id', $id, PDO::PARAM_INT);   
     if( $sth->execute()){
-        print "<script>location='index.php?table=$table';</script>";
+        print "<script>location='index.php';</script>";
     }else{
         print "Erro ao exclur o registro!<br><br>";
     }
 }
-require_once('./footer.php');
+require_once('./rodape.php');
 ?>

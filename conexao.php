@@ -1,15 +1,8 @@
 <?php
-$host = '127.0.0.1';
-/*
-$db   = 'cadastro';
-$user = 'postgres';
-$pass = 'postgres';
-$sgbd='pgsql';      // pgsql, mysql
-$table='clientes';
-*/
-$db   = 'cadastro';
+$host = 'localhost';
+$db   = 'auto-crud';
 $user = 'root';
-$pass = '';
+$pass = 'mysql';
 $sgbd='mysql';      // pgsql, mysql
 $table='clientes';
 
@@ -33,3 +26,4 @@ try {
     echo '<b>Linha</b>: '.$e->getLine().'<br>';
 }
 
+require_once('./funcoes.php');

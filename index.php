@@ -14,7 +14,7 @@
     <!--
     This is where data will be shown.
     -->
-    <img src="./images/ajax-loader.gif" />
+    <img src="./imagnes/ajax-loader.gif" />
 </div>
 
 <script type = "text/javascript" src = "./js/jquery.min.js"></script>
@@ -26,10 +26,10 @@ $(function(){
  
 function getdata(pageno){
     // source of data
-    var targetURL = 'search_results.php?page=' + pageno;
+    var targetURL = 'busca_resultados.php?page=' + pageno;
  
     // show loading animation
-    $('#retrieved-data').html('<img src="./images/ajax-loader.gif" />');
+    $('#retrieved-data').html('<img src="./imagens/ajax-loader.gif" />');
  
     // load to show new data
     $('#retrieved-data').load(targetURL).hide().fadeIn('slow');

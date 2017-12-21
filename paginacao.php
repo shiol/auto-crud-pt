@@ -14,7 +14,7 @@
  
 // ------------------------------------------------------------------------
  
-class PS_Pagination {
+class Paginacao {
     private $php_self;
     private $rows_per_page = 10; //Number of records to display per page
     private $total_rows = 0; //Total number of rows returned by the query

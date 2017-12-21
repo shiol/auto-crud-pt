@@ -1,7 +1,8 @@
 <?php
-require_once('./header.php');
-require_once('./db_connect.php');
+require_once('./cabecalho.php');
+require_once('./conexao.php');
 
+// Mostrar o nome da tabela
 print '<h3 align="center">'.ucfirst($table).'</h3>';
 ?>
 <div class="container">
@@ -9,21 +10,21 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
         <div class="col-md-3"></div>
         <div class="col-md-6">
         <table class="table table-bordered table-responsive">    
-            <form method="post" action="add.php?table=<?=$table?>"> 
+            <form method="post" action="inserir.php?table=<?=$table?>"> 
 
 <?php
     $sql = "SELECT * FROM $table";
     $sth = $pdo->query($sql);
-    $numfields = $sth->columnCount();
+    $num_campos = num_campos($table,$pdo);
 
     $tb = "index.php?table=$table";// Variável a ser usada no location
         
-    for($x=0;$x<$numfields;$x++){
-        $meta = $sth->getColumnMeta($x);
-        $field = $meta['name'];
+    for($x=0;$x<$num_campos;$x++){
+        $campo = nome_campo($sth, $x);
+
         if($x>0){
 ?>
-        <tr><td><b><?=ucfirst($field)?></td><td><input type="text" name="<?=$field?>"></td></tr>
+        <tr><td><b><?=ucfirst($campo)?></td><td><input type="text" name="<?=$campo?>"></td></tr>
 
 <?php
         }
@@ -42,33 +43,30 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
 
 if(isset($_POST['enviar'])){
 
-	$set='';
-	$sths='';
-    $numfields = $sth->columnCount();
-        
-    for($x=0;$x<$numfields;$x++){
-        $meta = $sth->getColumnMeta($x);
-        $field = $meta['name'];     
+    $num_campos = num_campos($table,$pdo);
+
+    for($x=0;$x<$num_campos;$x++){
+        $campo = nome_campo($sth, $x);
 
         if($x==0) continue;
 
-		if($x<$numfields-1){
-            $fields .= "$field,";
-            $values .= ":$field, ";
+		if($x<$num_campos-1){
+            $campos .= "$campo,";
+            $valores .= ":$campo, ";
 		}else{
-            $fields .= "$field";
-            $values .= ":$field";
+            $campos .= "$campo";
+            $valores .= ":$campo";
 		}
 	}
-    $sql = "INSERT INTO $table ($fields) VALUES ($values)";
+
+    $sql = "INSERT INTO $table ($campos) VALUES ($valores)";
     $sth = $pdo->prepare($sql);    
 
-    for($x=1;$x<$numfields;$x++){
+    for($x=1;$x<$num_campos;$x++){
 		$select = $pdo->query("SELECT * FROM $table");
-		$meta = $select->getColumnMeta($x);
-		$field=$meta['name'];
+        $campo = nome_campo($select, $x);
 
-		$sth->bindParam(":$field", $_POST["$field"], PDO::PARAM_INT);
+		$sth->bindParam(":$campo", $_POST["$campo"], PDO::PARAM_INT);
 	}
     $executa = $sth->execute();
 
@@ -78,6 +76,6 @@ if(isset($_POST['enviar'])){
         echo 'Erro ao inserir os dados';
     }
 }
-require_once('./footer.php');
+require_once('./rodape.php');
 ?>
 

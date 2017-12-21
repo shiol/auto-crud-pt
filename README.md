@@ -7,9 +7,6 @@ Português - https://github.com/ribafs/auto-crud-pt
 
 Inglês - https://github.com/ribafs/auto-crud-en
 
-### Suporte
-Testado em Windows e Linux e deve funcionar em MAC
-
 ### Requisitos:
 - Apache2
 - PHP 5.5.9+
@@ -21,10 +18,6 @@ https://github.com/ribafs/auto-crud
 ## Instalação
 Descompacte o pacote baixado e copie o diretório auto-crud para seu diretório web (renomeie a vontade).
 Supondo que tenha mudado o nome para clientes.
-
-## Também pode ser instalado pelo composer:
-- Crie um diretório e acesse-o. Então execute
-- composer require ribafs/auto-crud-pt
 
 ## Configuração
 
@@ -60,6 +53,14 @@ Após configurar o banco e a tabela e chamar pelo navegador ele trata cada um do
 ## Customizações
 
 O código com a paginação está no arquivo libs/ps_pagination.php.
+
+## Releases
+
+- 1.0 - Versão inicial
+- 1.1 - Nesta versão os arquivos foram todos renomeados para nomes em português
+      - Melhorados e traduzidos os comentários
+      - Simplificação do código removendo código desnecessário
+      - Criadas duas funções para substituir trechos de código que se repetiam. Inseri seu include na conexao.php para facilitar
 
 ## Licença
 
