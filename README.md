@@ -2,6 +2,9 @@
 
 #### Apenas indique o banco de dados e a tabela no conexao.php e ele cria seu CRUD com PDO, Bootstrap e Paginação, com suporte a MySQL e PostgreSQL garantidos e ainda outros via PDO.
 
+### Mais facilidades para esta versão
+Agora você pode apenas inserir o script.sql na pasta script e indicar no conexão que o auto-crud-pt irá criar o banco para ele e importar seu script
+
 ### Em dois Idiomas
 Português - https://github.com/ribafs/auto-crud-pt
 
@@ -72,6 +75,12 @@ O código com a paginação está no arquivo libs/ps_pagination.php.
       - Criadas duas funções para substituir trechos de código que se repetiam. Inseri seu include na conexao.php para facilitar
       
       - Pequena alteração no css do cabeçalho e do rodapé
+
+- 1.2 - Correçes devido aos ajustes da 1.1
+
+- 1.3 - Separados os arquivos principais inserir, atualizar e excluir em dois. Agora o inserir é inserir e inserirdb.
+
+- 1.4 - Agora ele cria o banco para você e importa seu script, basta indicar onde ele está no conexao.php
 
 ## AVISO
 O principal objetivo deste pequeno software é o de facilitar a vida de quem não programa e nem está pensando em aprender e também o de facilitar para quem programa mas apenas quer criar algo rápido, como uma agenda ou um cadastro simples.
