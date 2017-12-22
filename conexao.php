@@ -2,8 +2,8 @@
 $host = 'localhost';
 $db   = 'teste3';
 $user = 'root';
-$pass = 'mysql';
-$sgbd='mysql';      // pgsql, mysql
+$pass = '';
+$sgbd='mysql';      // Opções: pgsql ou mysql
 $table='clientes';
 $script = 'scripts/my.sql';
 
