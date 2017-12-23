@@ -2,28 +2,28 @@
 $host = 'localhost';
 $db   = 'cadastro'; // Dica: auto-crud não foi aceito
 $user = 'root';
-$pass = '';
-$sgbd='mysql';      // Opções: pgsql ou mysql
-$table='clientes';
+$pass = 'mysql';
+$sgbd = 'mysql';      // Opções: pgsql ou mysql
+$table = 'clientes';
+
 $script = 'scripts/clientes_my.sql';
+
+// Criar banco e importar script. Disponível somente para MySQL
 
 // Conectar para um banco interno
 if($sgbd == 'mysql'){
 	$pdo0 = new PDO("$sgbd:host=$host;dbname=sys;", $user, $pass);
-}elseif($sgbd == 'pgsql'){
-	$pdo0 = new PDO("$sgbd:host=$host;dbname=postgres;", $user, $pass);
-}
 
-// Caso não exista o banco $db será criado
-$ret = $pdo0->query('create database if not exists '.$db);
+	// Caso não exista o banco $db será criado
+	$ret = $pdo0->query('create database if not exists '.$db);
 
-// Se for criado o banco o script $script será importado para o mesmo
-if($ret){
-    $pdo0->query('use '.$db);
-
-    $sqlSource = file_get_contents($script);
-    $pdo0->exec($sqlSource);
-    $pdo0 = null;
+	// Se for criado o banco o script $script será importado para o mesmo
+	if($ret){
+		$pdo0->query('use '.$db);
+		$sqlSource = file_get_contents($script);
+		$pdo0->exec($sqlSource);
+		$pdo0 = null;
+	}
 }
 
 // Conectar ao banco com PDO
