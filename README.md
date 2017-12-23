@@ -80,7 +80,7 @@ O código com a paginação está no arquivo libs/ps_pagination.php.
 
 - 1.3 - Separados os arquivos principais inserir, atualizar e excluir em dois. Agora o inserir é inserir e inserirdb.
 
-- 1.4 - Agora ele cria o banco para você e importa seu script, basta indicar onde ele está no conexao.php
+- 1.4 - Agora ele cria o banco para você e importa seu script, basta indicar onde ele está no conexao.php. Disponível somente para MySQL. Para postgresql precisa criar o banco com os dados ou importar um script.
 
 ## AVISO
 O principal objetivo deste pequeno software é o de facilitar a vida de quem não programa e nem está pensando em aprender e também o de facilitar para quem programa mas apenas quer criar algo rápido, como uma agenda ou um cadastro simples.
