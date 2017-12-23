@@ -1,14 +1,18 @@
 <?php
 $host = 'localhost';
-$db   = 'teste3';
+$db   = 'cadastro'; // Dica: auto-crud não foi aceito
 $user = 'root';
 $pass = '';
 $sgbd='mysql';      // Opções: pgsql ou mysql
 $table='clientes';
-$script = 'scripts/my.sql';
+$script = 'scripts/clientes_my.sql';
 
-// Conectar ao banco sys
-$pdo0 = new PDO("$sgbd:host=$host;dbname=sys;", $user, $pass, $opt);
+// Conectar para um banco interno
+if($sgbd == 'mysql'){
+	$pdo0 = new PDO("$sgbd:host=$host;dbname=sys;", $user, $pass);
+}elseif($sgbd == 'pgsql'){
+	$pdo0 = new PDO("$sgbd:host=$host;dbname=postgres;", $user, $pass);
+}
 
 // Caso não exista o banco $db será criado
 $ret = $pdo0->query('create database if not exists '.$db);
@@ -22,17 +26,9 @@ if($ret){
     $pdo0 = null;
 }
 
-// Adotar algumas opções para o PDO
-$opt = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
-];
-
 // Conectar ao banco com PDO
 try {
-    $pdo = new PDO("$sgbd:host=$host;dbname=$db;", $user, $pass, $opt);
+    $pdo = new PDO("$sgbd:host=$host;dbname=$db;", $user, $pass);
 
     // echo 'Conectado para o banco de dados<br />';
 
