@@ -1,6 +1,4 @@
-<?php
-    require_once('./cabecalho.php');
-?>
+<?php require_once('./cabecalho.php'); ?>
 
 <div class="container">
     <div class="row">
@@ -14,8 +12,8 @@
             <form action="busca.php" method="get" >
             <div class="pull-right"style="padding-left: 0;"  >
               <span class="pull-right">  
-                <label class="col-lg-12 control-label" for="keyword" style="padding-right: 0;">
-                  <input type="text" value="" placeholder="Nome ou parte" class="form-control" name="keyword">
+                <label class="control-label" for="palavra" style="padding-right: 0;">
+                  <input type="text" value="" placeholder="Nome ou parte" class="form-control" name="palavra">
                 </label>
                 </span>
               <button class="btn btn-info">Busca</button>
@@ -27,13 +25,9 @@
 <br>
 
 <?php
-// Connect to database.
 require_once './conexao.php';
- 
-// Include our pagination class / library.
 require_once './paginacao.php';
  
-// Seleciona todos os campos da tabela ordenador pelo id
 $sql = "select * from $table order by id";
  
 /*
@@ -49,6 +43,7 @@ $sql = "select * from $table order by id";
     You can use this if you are going to use this class for search results.
     O último parâmetro é útil para quando estamos fazendo busca via paginação (keyword), mas no caso não estou usando.
 */
+
 // Sintaxe da Paginacao($pdoection, $sql, $rows_per_page = 15, $links_per_page = 23, $append = "")
 $pager = new Paginacao($pdo, $sql, 15, 23, null);
  
@@ -57,20 +52,16 @@ $rs = $pager->paginate();
 
 // Conta quantos registros retronaram
 $num = $rs->rowCount();
- 
 if($num >= 0 ){
 
     // Cria o cabeçalho da tabela
 	print '<div class="container" align="center">';
     echo '<table class="table table-hover">';
     echo "<tr>";
-        $sth = $pdo->query($sql);
-
-        $num_campos = num_campos($table,$pdo);
+        $num_campos = num_campos();
         
         for($x=0;$x<$num_campos;$x++){
-
-            $campo = nome_campo($sth, $x);
+            $campo = nome_campo($x);
 	?>
 	        <th><?=ucfirst($campo)?></th>
 	<?php
@@ -83,7 +74,7 @@ if($num >= 0 ){
     while ($row = $rs->fetch(PDO::FETCH_ASSOC)){
         echo "<tr>";
             for($x=0;$x<$num_campos;$x++){
-                $campo = nome_campo($sth, $x);
+                $campo = nome_campo($x);
                 ?>
                 <!-- Mostrar os valores dos campos-->
                 <td><?=$row[$campo]?></td>
@@ -102,11 +93,11 @@ if($num >= 0 ){
 }
  
 // 'page-nav' CSS class é usada para controlar a aparência dos números de páginas da navegação
-echo "<div class='page-nav' align='center'>";
+	echo "<div class='page-nav' align='center'>";
     // Mostra nossa navegação de números
     echo $pager->renderFullNav();
 echo "</div>
 </div>";
 
 require_once('./rodape.php');
-?> 
+?>

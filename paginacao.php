@@ -8,8 +8,8 @@
  * @author      Jatinder Singh Thind
  * @copyright   Copyright (c) 2006, Jatinder Singh Thind
  * @link        http://www.phpsense.com
- * @modification        Mike Dalisay
- * @link                https://www.codeofaninja.com
+ * @modification Mike Dalisay
+ * @link         https://www.codeofaninja.com
  */
  
 // ------------------------------------------------------------------------
@@ -246,4 +246,3 @@ class Paginacao {
         $this->debug = $debug;
     }
 }
-?>

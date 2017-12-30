@@ -1,14 +1,13 @@
 <?php
 $host = 'localhost';
-$db   = 'cadastro'; // Dica: auto-crud não foi aceito
+$db   = 'auto-crud'; // Dica: auto-crud não foi aceito
 $user = 'root';
 $pass = 'mysql';
 $sgbd = 'mysql';      // Opções: pgsql ou mysql
 $table = 'clientes';
-
 $script = 'scripts/clientes_my.sql';
 
-// Criar banco e importar script. Disponível somente para MySQL
+// Criar banco e importar script. Disponível somente para MySQL por enquanto
 
 // Conectar para um banco interno
 if($sgbd == 'mysql'){

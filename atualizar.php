@@ -2,11 +2,11 @@
 require_once('./cabecalho.php');
 require_once('./conexao.php');
 
-// Receebr o id via POST deste arquivo ou via GET do busca_resultados.php
-if(isset($_POST['id'])){
-	$id=$_POST['id'];
-}else{
+// Receebr o id via GET do busca_resultados.php ou via POST deste arquivo
+if(isset($_GET['id'])){
 	$id=$_GET['id'];
+}else{
+	$id=$_POST['id'];
 }
 
 // Mostrar nome da Tabela
@@ -28,10 +28,10 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
 
     $reg = $sth->fetch(PDO::FETCH_OBJ);
 
-    $num_campos = num_campos($table,$pdo);
+    $num_campos = num_campos();
             
     for($x=0;$x<$num_campos;$x++){
-        $campo = nome_campo($sth, $x);
+        $campo = nome_campo($x);
 ?>
         <tr><td><b><?=ucfirst($campo)?></td><td><input type="text" name="<?=$campo?>" value="<?=$reg->$campo?>"></td></tr>
 <?php

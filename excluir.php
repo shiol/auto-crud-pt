@@ -27,10 +27,10 @@ $reg = $sth->fetch(PDO::FETCH_OBJ);
     $sql = "SELECT * FROM $table";
     $sth = $pdo->query($sql);
 
-    $num_campos = num_campos($table,$pdo);
+    $num_campos = num_campos();
         
     for($x=0;$x<$num_campos;$x++){
-        $campo = nome_campo($sth, $x);
+        $campo = nome_campo($x);
         ?>
         <!-- Mostrar nomes de campos e respectivos valores-->
         <b><?=ucfirst($campo)?>:</b> <?=$reg->$campo?><br>

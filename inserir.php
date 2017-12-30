@@ -13,14 +13,9 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
             <form method="post" action="inserir.php?table=<?=$table?>"> 
 
 <?php
-    $sql = "SELECT * FROM $table";
-    $sth = $pdo->query($sql);
-    $num_campos = num_campos($table,$pdo);
-
-    $tb = "index.php?table=$table";// Variável a ser usada no location
-        
+    $num_campos = num_campos();        
     for($x=0;$x<$num_campos;$x++){
-        $campo = nome_campo($sth, $x);
+        $campo = nome_campo($x);
 
         if($x>0){
 ?>
@@ -32,7 +27,7 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
 ?>
             <input name="table" type="hidden" value="<?=$table?>">
             <tr><td></td><td><input class="btn btn-primary" name="enviar" type="submit" value="Cadastrar">&nbsp;&nbsp;&nbsp;
-            <input class="btn btn-warning" name="enviar" type="button" onclick="location='<?=$tb?>'" value="Voltar"></td></tr>
+            <input class="btn btn-warning" name="enviar" type="button" onclick="location='index.php'" value="Voltar"></td></tr>
             </form>
         </table>
         </div>
